@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="icon" type="image/png" sizes="32x32"  href="logo.jpg">
+    <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../node_modules/lightbox2/dist/css/lightbox.min.css">  
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <title>Freelancer Project | Contact</title>
+</head>
+<body>
+
+<!-- Header -->
+    <header id="header__contact">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html"><img src="logo.png" alt="web site logo" class="main-nav__logo"></a>
+                <ul class="main-nav__items">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+           
+        </div>
+    </header>
+
+<!-- Section a -->
+    <section id="contact-a" class="text-center py-2">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="border-bottom"></div>
+            <p class="lead">You can contact me through this page, you can call 24/7.</p>
+            <form
+                action="https://formspree.io/f/xgejvwpb"
+                method="POST">
+                <div class="form-fields">
+                    <input type="text" class="name input" name="fullname" id="fullname" placeholder="Name" required>
+                    <input type="text" class="subject input" name="subject" id="subject" placeholder="Subject" required>
+                    <input type="email" class="email input" name="email" id="email" placeholder="Email" required>
+                    <input type="tel" class="phone input" name="phone" id="phone" placeholder="Phone" required>
+                    <textarea name="message" class="message input" id="message" placeholder="Enter Message" required></textarea>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+<!-- Section b -->
+    <section id="contact-b" class="bg-primary py-4">
+        <div class="container">
+            <div class="contact-info">
+                <div>
+                    <i class="fas fa-envelope fa-2x"></i>
+                    <h3>Email</h3>
+                    <p>andrewpuskas@gmail.com</p>
+                </div>
+
+                <div>
+                    <i class="fas fa-phone fa-2x"></i>
+                    <h3>Phone</h3>
+                    <p>+1 (55) 803 87 48</p>
+                </div>
+
+                <div>
+                    <i class="fas fa-address-card fa-2x"></i>
+                    <h3>Address</h3>
+                    <p>Ottava, Canada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll Btn -->
+<button id="scrollBtn" class="fa-regular fa-arrow-up"> Scroll Up</button>
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+    let scrollBtn = document.getElementById('scrollBtn');
+
+    function scrollUp() {
+        let currentPosition = window.pageYOffset;
+        let targetPosition = 0;
+        let distance = targetPosition - currentPosition;
+        let duration = 500;
+        let startTime = null;
+
+        function animation(currentTime) {
+        if (startTime === null) {
+            startTime = currentTime;
+        }
+        let elapsedTime = currentTime - startTime;
+        let easing = easeOutQuad(elapsedTime, currentPosition, distance, duration);
+
+        if (elapsedTime < duration) {
+            window.scrollTo(0, easing);
+            requestAnimationFrame(animation);
+        } else {
+            window.scrollTo(0, targetPosition);
+        }
+        }
+
+        function easeOutQuad(t, b, c, d) {
+        t /= d;
+        return -c * t * (t - 2) + b;
+        }
+
+        requestAnimationFrame(animation);
+    }
+
+    scrollBtn.addEventListener('click', scrollUp);
+
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300 && !scrollBtn.classList.contains('show')) {
+        scrollBtn.classList.add('show');
+        } else if (window.pageYOffset <= 300 && scrollBtn.classList.contains('show')) {
+            scrollBtn.classList.remove('show');
+        }
+    });
+
+    if (window.pageYOffset <= 300) {
+        scrollBtn.classList.remove('show');
+    }
+    });
+</script>
+
+<!-- Footer -->
+    <footer id="main-footer">
+        <div class="footer-content container">
+            <p style="color: #fff;">Copyright &copy; 2025. All Rights Reserved</p>
+
+            <div class="social">
+                <a id="fa" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                <a id="tw" href="https://twitter.com" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                <a id="ins" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+                <a id="yt" href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
